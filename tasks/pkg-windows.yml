@@ -1,0 +1,20 @@
+---
+- name: Download Authentication Proxy for Windows
+  win_get_url:
+    url: https://dl.duosecurity.com/duoauthproxy-latest.exe
+    path: C:\temp\duoauthproxy-latest.exe
+  register: download_exe_result
+
+- name: Install Windows Authentication Proxy
+  win_package: 
+    path: "{{ download_exe_result.dest }}"
+    state: present
+    arguments:
+    - '/S'
+
+- name: Delete temporary exe
+  win_file:
+    path: "{{ download_exe_result.dest }}"
+    state: absent
+  when: download_exe_result.status_code = 200
+    

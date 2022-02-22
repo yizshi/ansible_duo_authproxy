@@ -1,0 +1,40 @@
+---
+# This task are shared with all supported linux OS
+- name: Extract AuthProxy source tarball to tmp folder
+  unarchive:
+    src: https://dl.duosecurity.com/duoauthproxy-latest-src.tgz
+    dest: /tmp
+    remote_src: yes
+  become: yes
+  register:
+    authproxy_source
+    
+- name: Find Linux Authproxy directory name
+  find:
+    paths: /tmp/duo_authproxy
+    file_type: directory
+    recurse: false
+  register: authproxy_dir
+    
+- name: Build Linux Authproxy (This task will take a while)
+  shell: "make"
+  args:
+    chdir: "{{ item.path }}"
+  become: yes
+  with_items: "{{ authproxy_dir.files }}"
+
+- name: Install Linux Authproxy
+  shell: "sudo duoauthproxy-build/install --install-dir /opt/duoauthproxy --service-user duo_authproxy_svc --log-group duo_authproxy_grp --create-init-script yes"
+  args:
+    chdir: "{{ item.path }}"
+  become: yes
+  with_items: "{{ authproxy_dir.files }}"
+  when: ansible_system == "Linux"
+
+- name: Clean up for Linux
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  become: yes
+  with_items: "{{ authproxy_dir.files }}"
+  when: ansible_system == "Linux"

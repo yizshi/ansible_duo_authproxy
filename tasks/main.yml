@@ -1,0 +1,15 @@
+---
+- name: Check if OS is supported
+  include_tasks: os-check.yml
+
+- name: Install Duo Authentication Proxy on windows
+  include_tasks: pkg-windows.yml
+  when: ansible_facts.os_family == "Windows"
+
+- name: Install Duo Authentication Proxy on RedHat
+  include_tasks: pkg-windows.yml
+  when: ansible_facts.os_family == "RedHat"
+
+- name: Install Duo Authentication Proxy on Debian
+  include_tasks: pkg-windows.yml
+  when: ansible_facts.os_family == "Debian"

@@ -1,0 +1,11 @@
+---
+
+- name: restart linux duoauthproxy
+  service: 
+    name: duoauthproxy
+    state: restarted
+
+- name: restart windows duoauthproxy
+  win_service: 
+    name: duoauthproxy
+    state: restarted

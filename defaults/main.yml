@@ -1,0 +1,6 @@
+---
+# default authproxy linux config path
+authproxy_config_linux: '/opt/duoauthproxy/conf/authproxy.cfg'
+
+# default authproxy windows config path
+authproxy_config_win: 'C:\\Program Files\\Duo Authentication Proxy\\conf\\authproxy.cfg'

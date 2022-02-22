@@ -1,0 +1,52 @@
+---
+- name: Install gcc
+  yum:
+    update_cache: yes
+    name: gcc
+    state: present
+  become: true
+
+- name: Install make
+  yum:
+    update_cache: yes
+    name: make
+    state: present
+  become: true
+
+- name: Install libffi-dev
+  yum:
+    update_cache: yes
+    name: libffi-dev
+    state: present
+  become: true
+
+- name: Install perl
+  yum:
+    update_cache: yes
+    name: perl
+    state: present
+  become: true
+
+- name: Install zlib1g-dev
+  yum:
+    update_cache: yes
+    name: zlib1g-dev
+    state: present
+  become: true
+
+- name: Install diffutils
+  yum:
+    update_cache: yes
+    name: diffutils
+    state: present
+  become: true
+
+- name: Install selinux-policy-devel
+  apt:
+    update_cache: yes
+    name: selinux-policy-devel
+    state: present
+  become: true
+
+- name: Install Duo Authentication Proxy
+  include_tasks: pkg-linux/pkg-linux.yml
