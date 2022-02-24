@@ -11,7 +11,7 @@
     
 - name: Find Linux Authproxy directory name
   find:
-    paths: /tmp/duo_authproxy
+    paths: /tmp/duoauthproxy
     file_type: directory
     recurse: false
   register: authproxy_dir
