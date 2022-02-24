@@ -7,11 +7,11 @@
   when: ansible_facts.os_family == "Windows"
 
 - name: Install Duo Authentication Proxy on RedHat
-  include_tasks: pkg-windows.yml
+  include_tasks: pkg-redhat.yml
   when: ansible_facts.os_family == "RedHat"
 
 - name: Install Duo Authentication Proxy on Debian
-  include_tasks: pkg-windows.yml
+  include_tasks: pkg-debian.yml
   when: ansible_facts.os_family == "Debian"
 
 - name: Deploy Duo Authentication Proxy Config File
