@@ -13,3 +13,6 @@
 - name: Install Duo Authentication Proxy on Debian
   include_tasks: pkg-windows.yml
   when: ansible_facts.os_family == "Debian"
+
+- name: Deploy Duo Authentication Proxy Config File
+  include_tasks: deploy-cfg.yml
