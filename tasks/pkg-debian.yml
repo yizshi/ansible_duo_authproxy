@@ -27,12 +27,5 @@
     state: present
   become: true
 
-- name: Install selinux-policy-devel
-  apt:
-    update_cache: yes
-    name: selinux-policy-devel
-    state: present
-  become: true
-
 - name: Install Duo Authentication Proxy
   include_tasks: pkg-linux/pkg-linux.yml
