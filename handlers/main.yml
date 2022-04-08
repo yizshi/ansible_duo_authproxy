@@ -4,6 +4,7 @@
   service: 
     name: duoauthproxy
     state: restarted
+  become: true
 
 - name: restart windows duoauthproxy
   win_service: 

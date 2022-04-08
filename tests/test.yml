@@ -1,4 +1,4 @@
 ---
 - hosts: linux
   roles:
-    - ../duo_authproxy
+    - yizshi.duo_authproxy

@@ -32,7 +32,8 @@ galaxy_info:
   platforms:
   - name: Windows
     versions:
-    - all
+    - "2019"
+    - "2016"
   - name: Ubuntu
     versions:
     - bionic
