@@ -2,11 +2,12 @@
 - name: Deploy Linux Config
   copy:
     src: authproxy.cfg
-    dest: /opt/duoauthproxy/cfg/authproxy.cfg
+    dest: /opt/duoauthproxy/conf/authproxy.cfg
     backup: yes
   when: ansible_facts.os_family == "Debian" or ansible_facts.os_family == "RedHat"
   notify:
     - restart linux duoauthproxy
+  become: true
 
 - name: Deploy Windows Config
   win_copy: 

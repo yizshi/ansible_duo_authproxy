@@ -1,5 +1,4 @@
 ---
-- hosts: localhost
-  remote_user: root
+- hosts: linux
   roles:
-    - yizshi.ansible_duo_authproxy
+    - ../duo_authproxy

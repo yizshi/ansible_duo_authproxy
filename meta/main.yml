@@ -2,6 +2,8 @@ galaxy_info:
   author: Duo Security
   description: Use this role to install and deploy Duo Authentication Proxy across all supported platform
   company: Duo Security
+  role_name: duo_authproxy
+  namespace: yizshi
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
@@ -16,7 +18,7 @@ galaxy_info:
   # - CC-BY-4.0
   license: license (GPL-2.0-or-later, MIT, etc)
 
-  min_ansible_version: 2.1
+  min_ansible_version: "2.1"
 
   # If this a Container Enabled role, provide the minimum Ansible Container version.
   # min_ansible_container_version:
@@ -27,11 +29,16 @@ galaxy_info:
   # To view available platforms and versions (or releases), visit:
   # https://galaxy.ansible.com/api/v1/platforms/
   #
-  # platforms:
-  # - name: Fedora
-  #   versions:
-  #   - all
-  #   - 25
+  platforms:
+  - name: Windows
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - bionic
+  - name: Debian
+    versions:
+    - bullseye
   # - name: SomePlatform
   #   versions:
   #   - all

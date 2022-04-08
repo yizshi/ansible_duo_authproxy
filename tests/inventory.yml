@@ -1,0 +1,8 @@
+---
+all:
+  hosts:
+    ec2-54-160-189-76.compute-1.amazonaws.com:
+  children:
+    linux:
+      hosts:
+        ec2-54-160-189-76.compute-1.amazonaws.com:
